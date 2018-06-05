@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script src="mvvm.js"></script>
+    <div id="app">
+        <input v-model="c" type="text">
+        {{c}}
+    </div>
+    <script>
+      // 写法和Vue一样
+      let mvvm = new Mvvm({
+        el: '#app',
+        data: {
+          a: {
+              b: 1
+          },
+          c: 2
+        },
+        computed: {
+            sum() {
+                return this.a + this.b;
+            },
+            noop() {}
+        },
+        mounted() {
+            setTimeout(() => {
+                console.log('所有事情都搞定了');
+            }, 1000);
+        }
+      });
+      console.log(mvvm)
+    </script>
+  
+</body>
+</html>
