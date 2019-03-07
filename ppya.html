@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ppya-vue</title>
+</head>
+<body>
+  <script src="ppya-vue.js"></script>
+  <div id="app">
+      <input v-model="price" type="text">
+      {{user.name}}{{total}}
+  </div>
+  <script>
+    let mvvm = new Mvvm({
+      el: "#app",
+      data: {
+        price: 5,
+        quantity: 2,
+        user: {
+          name: 'ppya'
+        }
+      },
+      computed: {
+        total () {
+          return this.price * this.quantity
+        }
+      },
+      watch: {
+        price () {
+          console.log('watch price', this.price)
+        }
+      },
+      mounted () {
+        console.log('mounted', this.total)
+      }
+    })
+  </script>
+</body>
+</html>
